@@ -1,0 +1,54 @@
+﻿@page
+@model AppPasqualiFront.Pages.PessoaCadastro.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pessoa[0].NomeCompleto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pessoa[0].DataNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pessoa[0].ValorRenda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pessoa[0].CPF)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Pessoa) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorRenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPF)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
